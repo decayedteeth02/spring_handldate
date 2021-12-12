@@ -18,7 +18,7 @@ public class MyStringToDateconverter implements Converter<String, Date> {
 
     @Override
     public Date convert(String source) {
-        if(StringUtils.isEmpty(source)) {
+        if(!StringUtils.isEmpty(source)) {
             try {
                 if (source.split("-").length == 3) {
                     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
