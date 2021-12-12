@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+    <!--    扫描包-->
+    <context:component-scan base-package="cn.mvc.controllers">
+    </context:component-scan>
+
+
+
+<!--    将映射的地址直接指向静态资源文件夹-->
+<!--    <mvc:resources mapping="/images/**" location="/images/"/>-->
+
+<!--    <mvc:default-servlet-handler/>-->
+
+<!--    默认视图解析器 配上前缀和后缀 viewResolver简化 逻辑视图名称-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" name="viewResolver">
+        <property name="prefix" value="/WEB-INF/view/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+<!--    注解驱动：必加-->
+    <!--    访问静态资源-->
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+
+<!--    配置自定义转换器-->
+    <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionServiceFactory">
+        <property name="converters">
+            <set>
+                <bean class="cn.mvc.converters.MyStringToDateconverter">
+
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+</beans>
