@@ -1,24 +1,51 @@
 package cn.mvc.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 import java.util.Arrays;
 import java.util.Date;
 
 public class User {
     private Integer id;
     private String Username;
-    private Date brithday;
-    private Double balance;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birthday;
+    @NumberFormat(style = NumberFormat.Style.CURRENCY)//货币
+    private Double balance;//
     private String[] hobbies;
+    @NumberFormat(pattern = "#,###.##")
+    private Double salary;//工资
+    @NumberFormat(style = NumberFormat.Style.PERCENT)
+    private Double taskCount;//任务完成百分比
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", Username='" + Username + '\'' +
-                ", brithday=" + brithday +
+                ", brithday=" + birthday +
                 ", balance=" + balance +
                 ", hobbies=" + Arrays.toString(hobbies) +
+                ", salary=" + salary +
+                ", taskCount=" + taskCount +
                 '}';
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public Double getTaskCount() {
+        return taskCount;
+    }
+
+    public void setTaskCount(Double taskCount) {
+        this.taskCount = taskCount;
     }
 
     public String[] getHobbies() {
@@ -45,12 +72,12 @@ public class User {
         Username = username;
     }
 
-    public Date getBrithday() {
-        return brithday;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBrithday(Date brithday) {
-        this.brithday = brithday;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public Double getBalance() {

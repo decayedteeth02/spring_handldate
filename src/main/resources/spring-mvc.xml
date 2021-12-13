@@ -35,13 +35,15 @@
 
 <!--    配置自定义转换器-->
     <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionService">
-        <property name="converters">
-            <set>
-                <bean class="cn.mvc.converters.MyStringToDateconverter">
+<!--        <property name="converters">-->
+<!--            <set>-->
+<!--                <bean class="cn.mvc.converters.MyStringToDateconverter">-->
 
-                </bean>
-            </set>
-        </property>
+<!--                </bean>-->
+<!--            </set>-->
+<!--        </property>-->
     </bean>
+<!--    视图控制器-->
+    <mvc:view-controller path="/user/add" view-name="user/add"></mvc:view-controller>
 
 </beans>

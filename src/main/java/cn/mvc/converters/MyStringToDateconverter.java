@@ -20,10 +20,10 @@ public class MyStringToDateconverter implements Converter<String, Date> {
     public Date convert(String source) {
         if(!StringUtils.isEmpty(source)) {
             try {
-                if (source.split("-").length == 3) {
+                if (source.split("-").length==3) {
                     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     return df.parse(source);
-                } else if (source.split("/").length == 3) {
+                } else if (source.split("/").length==3) {
                     DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
                     return df.parse(source);
                 } else {
