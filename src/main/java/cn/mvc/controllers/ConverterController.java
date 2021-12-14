@@ -16,10 +16,10 @@ public class ConverterController {
         return "show";
     }
 
-    @Test
-    public void test01(){
-            Date date=new Date("2020-8-8");
-        System.out.println(date);
-    }
+//    @Test
+//    public void test01(){
+//            Date date=new Date("2020-8-8");
+//        System.out.println(date);
+//    }
 
 }

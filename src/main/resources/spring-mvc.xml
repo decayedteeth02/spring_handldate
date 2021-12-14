@@ -33,8 +33,9 @@
     <!--    访问静态资源-->
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
+<!--    当配置了类型转换器要将实现类改成FormattingConversionServiceFactoryBean-->
 <!--    配置自定义转换器-->
-    <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionService">
+    <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="conversionService">
 <!--        <property name="converters">-->
 <!--            <set>-->
 <!--                <bean class="cn.mvc.converters.MyStringToDateconverter">-->

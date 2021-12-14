@@ -9,7 +9,7 @@ import java.util.Date;
 public class User {
     private Integer id;
     private String Username;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
     @NumberFormat(style = NumberFormat.Style.CURRENCY)//货币
     private Double balance;//
